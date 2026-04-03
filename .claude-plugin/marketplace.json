@@ -1,0 +1,29 @@
+{
+  "name": "sitemd",
+  "owner": {
+    "name": "sitemd"
+  },
+  "metadata": {
+    "description": "Websites from Markdown. Built for AI coding assistants."
+  },
+  "plugins": [
+    {
+      "name": "sitemd",
+      "source": "./",
+      "description": "Build websites from Markdown with AI assistance. MCP tools for page management, content generation, deploy, and more.",
+      "version": "0.1.0",
+      "homepage": "https://sitemd.cc",
+      "repository": "https://github.com/sitemd-cc/sitemd",
+      "license": "Elastic-2.0",
+      "keywords": [
+        "website",
+        "markdown",
+        "static-site",
+        "mcp",
+        "content",
+        "deploy"
+      ],
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "sitemd",
+  "name": "sitemd",
+  "version": "0.1.0",
+  "description": "Build websites from Markdown. MCP tools for page management, content generation, and deployment.",
+  "author": {
+    "name": "sitemd",
+    "url": "https://sitemd.cc"
+  },
+  "homepage": "https://sitemd.cc",
+  "repository": "https://github.com/sitemd-cc/sitemd",
+  "license": "Elastic-2.0",
+  "keywords": [
+    "website",
+    "markdown",
+    "static-site",
+    "deploy",
+    "content"
+  ],
+  "mcpServers": {
+    "sitemd": {
+      "command": "./sitemd/sitemd",
+      "args": [
+        "mcp"
+      ]
+    }
+  }
+}
