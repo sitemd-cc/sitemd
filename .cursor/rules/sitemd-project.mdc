@@ -1,0 +1,75 @@
+---
+description: sitemd project structure, first steps, and MCP tool reference
+globs:
+alwaysApply: true
+---
+
+# sitemd
+
+sitemd is a markdown-first static site builder. Pages are `.md` files with YAML frontmatter. Settings are YAML frontmatter in `settings/*.md`. The build engine converts everything to static HTML.
+
+## First Steps
+
+1. **If no binary** (`sitemd/sitemd` does not exist) — run `./sitemd/install` to download it
+2. Call `sitemd_status` to understand the project state
+3. **If fresh project** (siteName "My Site", ≤4 pages) — this is a new installation:
+   a. Run `/launch` to start the user's site (port 4747) — open in browser
+   b. Run `/launch demo` to start the demo showcase (port 4848) — open in browser
+   c. Tell the user: "Your blank site is live at :4747 and the demo showcase is at :4848. Browse the demo to see what's possible."
+   d. Ask: "What are you building? One sentence is enough."
+   e. Run `/kickstart` with their answer — the user watches their site update live as pages are created
+4. **If existing project** — continue normal workflow:
+   a. Read files in `pages/` to see existing content
+   b. Call `sitemd_site_context` with a content type to get writing brief and full syntax reference
+   c. Create pages with `sitemd_pages_create` — use rich components (buttons, cards, embeds, galleries)
+   d. Validate with `sitemd_content_validate`
+
+## Quick Start
+
+```bash
+./sitemd/install                    # Download binary (first time only)
+./sitemd/sitemd launch              # Dev server on localhost:4747
+```
+
+## File Structure
+
+```
+sitemd/              # Product directory
+  sitemd             # Compiled binary (run ./sitemd/sitemd launch)
+  install            # Bootstrap script (downloads binary on first run)
+  pages/             # Markdown pages → HTML (slug derived from file path or frontmatter)
+  settings/          # Site configuration (YAML frontmatter, no markdown body)
+    meta.md          # Site title, brand name, description, URL
+    header.md        # Navigation items
+    footer.md        # Footer content, social links
+    groups.md        # Page groups (sidebar, header dropdown, footer columns)
+    theme.md         # Colors, fonts, CSS variables
+    build.md         # Build mode settings
+    seo.md           # SEO configuration
+    content.md       # Content generation settings
+    deploy.md        # Deployment target
+    auth.md          # Authentication provider
+    forms.md         # Form defaults
+    email.md         # Email provider
+    analytics.md     # Analytics provider
+    data.md          # Dynamic data provider
+  theme/             # HTML layout templates and CSS
+```
+
+## MCP Tools
+
+sitemd exposes MCP tools for programmatic access. Connect via `.cursor/mcp.json`.
+
+### Content Management
+- `sitemd_pages_create` — Create a new page (title, description, slug, content, groupMember)
+- `sitemd_site_context` — Get writing brief: site identity, existing pages, conventions, type-specific state
+- `sitemd_content_validate` — Quality-check a page (description length, links, type-specific rules)
+- `sitemd_seo_audit` — Comprehensive SEO health check with scored report and recommendations
+- `sitemd_groups_add_pages` — Add pages to a group (automatic when `groupMember` is passed to `sitemd_pages_create`)
+- Read files in `pages/` to list pages; read `settings/groups.md` for groups; edit page files directly to update content
+
+### Infrastructure
+- `sitemd_status` — Full project state
+- `sitemd_deploy` — Build and deploy
+- `sitemd_config_set` — Manage credentials
+- `sitemd_auth_login` / `sitemd_auth_poll` / `sitemd_auth_status` / `sitemd_auth_logout` — Authentication

@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "sitemd": {
+      "command": "./sitemd/sitemd",
+      "args": [
+        "mcp"
+      ]
+    }
+  }
+}
