@@ -1,0 +1,23 @@
+{
+  "name": "sitemd",
+  "version": "0.1.1",
+  "description": "Websites from Markdown. Built for AI coding assistants. MCP tools for page management, content generation, deploy, and more.",
+  "mcpServers": {
+    "sitemd": {
+      "command": "./sitemd/sitemd",
+      "args": [
+        "mcp"
+      ],
+      "cwd": "${workspacePath}"
+    }
+  },
+  "contextFileName": "GEMINI.md",
+  "settings": [
+    {
+      "name": "Auth Token",
+      "description": "sitemd authentication token for site activation and deploy",
+      "envVar": "SITEMD_TOKEN",
+      "sensitive": true
+    }
+  ]
+}
