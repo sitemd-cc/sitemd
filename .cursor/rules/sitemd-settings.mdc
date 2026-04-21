@@ -1,0 +1,48 @@
+---
+description: sitemd settings format and available configuration keys
+globs: settings/**/*.md, sitemd/settings/**/*.md
+alwaysApply: false
+---
+
+## Settings Format
+
+Settings files use YAML frontmatter with inline `#` comments. No markdown body.
+
+```yaml
+---
+# What this setting does
+settingName: defaultValue
+
+# Section header
+anotherSetting: value
+---
+```
+
+## Settings Files
+
+| File | Controls |
+|---|---|
+| `meta.md` | Site title, brand name, description, URL |
+| `header.md` | Navigation items |
+| `footer.md` | Footer content, social links |
+| `groups.md` | Page groups (sidebar, header dropdown, footer columns) |
+| `theme.md` | Colors, fonts, CSS variables |
+| `build.md` | Build mode settings |
+| `seo.md` | SEO configuration |
+| `content.md` | Content generation settings |
+| `deploy.md` | Deployment target |
+| `auth.md` | Authentication provider |
+| `forms.md` | Form defaults |
+| `email.md` | Email provider |
+| `analytics.md` | Analytics provider |
+| `data.md` | Dynamic data provider |
+
+## Discovering Valid Keys
+
+Read `settings/_schema.md` (or call `sitemd_status`) to get all valid keys for every settings file, including descriptions and default values.
+
+Read the specific settings file directly (e.g., `settings/theme.md`) to see current values.
+
+## Updating Settings
+
+Edit `settings/{name}.md` directly to modify settings. Change the YAML frontmatter values as needed.

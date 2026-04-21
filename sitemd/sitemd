@@ -1,0 +1,64 @@
+#!/usr/bin/env node
+/**
+ * sitemd CLI wrapper (committed Node script; no extension).
+ *
+ * `bin.sitemd` in package.json points here so the npm/npx bin shim is always
+ * created at install time, regardless of whether the native binary has been
+ * downloaded yet. This eliminates the dangling-symlink race where
+ * `npx @sitemd-cc/sitemd init <dir>` fails with "sh: sitemd: command not
+ * found" because the bin shim was skipped during package extraction (the
+ * native binary arrives later, in postinstall).
+ *
+ * User-facing command is unchanged: `./sitemd/sitemd launch` still works —
+ * it now runs this Node script, which execs the native `sitemd-bin`.
+ *
+ * At runtime:
+ *   1. Resolve the native binary path (`sitemd-bin` / `sitemd-bin.exe`)
+ *      sibling to this file.
+ *   2. If missing, try running the bundled installer once to recover.
+ *   3. Exec the binary with our argv, propagating the exit code.
+ */
+
+const fs = require('fs')
+const path = require('path')
+const { execFileSync } = require('child_process')
+
+const binaryName = process.platform === 'win32' ? 'sitemd-bin.exe' : 'sitemd-bin'
+const binaryPath = path.join(__dirname, binaryName)
+
+async function ensureBinary() {
+  if (fs.existsSync(binaryPath)) return true
+  try {
+    const installer = require('./install.js')
+    await installer.main()
+  } catch {
+    // Fall through to the missing-binary error below.
+  }
+  return fs.existsSync(binaryPath)
+}
+
+async function run() {
+  const ok = await ensureBinary()
+  if (!ok) {
+    console.error('')
+    console.error('  sitemd: native binary not found and auto-install failed.')
+    console.error(`  Expected at: ${binaryPath}`)
+    console.error('')
+    console.error('  Fix: run the installer manually:')
+    console.error('    node sitemd/install.js')
+    console.error('')
+    console.error('  If you installed with --ignore-scripts, the postinstall')
+    console.error('  hook that downloads the binary did not run. The command')
+    console.error('  above does the same thing manually.')
+    console.error('')
+    process.exit(1)
+  }
+
+  try {
+    execFileSync(binaryPath, process.argv.slice(2), { stdio: 'inherit' })
+  } catch (err) {
+    process.exit(typeof err.status === 'number' ? err.status : 1)
+  }
+}
+
+run()
