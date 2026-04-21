@@ -1,0 +1,22 @@
+{
+  "name": "sitemd",
+  "version": "0.1.3",
+  "description": "The complete sitemd toolkit for Cursor — MCP server, a full suite of skills, auto-attaching rules, and a complete website framework. Requires the sitemd binary; auto-fetched via the npm postinstall hook (recommended: scaffold a project with `npx @sitemd-cc/sitemd init`) or via `./sitemd/install` after installing the plugin into an existing project.",
+  "author": {
+    "name": "sitemd",
+    "url": "https://sitemd.cc"
+  },
+  "homepage": "https://sitemd.cc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sitemd-cc/sitemd"
+  },
+  "license": "Elastic-2.0",
+  "keywords": [
+    "website",
+    "markdown",
+    "static-site",
+    "mcp",
+    "content"
+  ]
+}

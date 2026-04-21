@@ -1,0 +1,28 @@
+{
+  "id": "sitemd",
+  "name": "sitemd",
+  "version": "0.1.3",
+  "description": "The complete sitemd toolkit for OpenClaw — MCP server, skills, and a full website framework. Requires the sitemd binary; auto-fetched via the npm postinstall hook (recommended: scaffold a project with `npx @sitemd-cc/sitemd init`) or via `./sitemd/install` after installing the plugin into an existing project.",
+  "author": {
+    "name": "sitemd",
+    "url": "https://sitemd.cc"
+  },
+  "homepage": "https://sitemd.cc",
+  "repository": "https://github.com/sitemd-cc/sitemd",
+  "license": "Elastic-2.0",
+  "keywords": [
+    "website",
+    "markdown",
+    "static-site",
+    "deploy",
+    "content"
+  ],
+  "mcpServers": {
+    "sitemd": {
+      "command": "./sitemd/sitemd",
+      "args": [
+        "mcp"
+      ]
+    }
+  }
+}
