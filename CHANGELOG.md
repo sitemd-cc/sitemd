@@ -4,6 +4,21 @@ A running log of everything shipped in sitemd.
 
 ---
 
+## v0.2.1 — June 25, 2026
+
+### Improved
+
+- Engine no longer copied into projects — runs from the global npm install only
+- Skill files only unpack into .claude/.agents directories that already exist
+
+### Fixed
+
+- `sitemd update` now correctly installs the sitemd skill and updates site.md
+- `sitemd update` flattens nested sitemd/sitemd/ layout from old installs
+- `sitemd update` removes stale .mcp.json from inside sitemd/ directory
+
+---
+
 ## v0.2.0 — June 25, 2026
 
 ### Breaking Changes
