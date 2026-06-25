@@ -119,11 +119,11 @@ Supported providers: YouTube, Vimeo, Spotify, Twitter/X, Reddit, Instagram, TikT
 
 Add inline context to technical terms without cluttering the page:
 
-sitemd uses [MCP]{Model Context Protocol — a standard that lets AI coding agents interact with tools programmatically} for agent integration and [SSG]{Static Site Generation — your site is pre-built as HTML files, no server required at runtime} for deployment.
+sitemd uses agent skills for AI integration and [SSG]{Static Site Generation — your site is pre-built as HTML files, no server required at runtime} for deployment.
 
 ```markdown
-[MCP]{Model Context Protocol — a standard that lets AI coding agents
-interact with tools programmatically}
+[CLI]{Command Line Interface — run sitemd commands directly
+from your terminal}
 
 [SSG]{Static Site Generation — your site is pre-built as HTML files,
 no server required at runtime}

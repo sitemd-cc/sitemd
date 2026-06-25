@@ -7,33 +7,34 @@ sitemd turns a folder of markdown files into a production-ready static website w
 ## Quick Start
 
 ```bash
-git clone https://github.com/sitemd-cc/sitemd.git my-site
+npm install -g @sitemd-cc/sitemd
+sitemd init my-site
 cd my-site
-./sitemd/install
-./sitemd/sitemd launch
+npm install
+sitemd launch
 ```
 
-Open the dev server URL to see your site (port configured in `sitemd/settings/build.md`, default 4747). No Node.js required.
+Open the dev server URL to see your site (port configured in `sitemd/settings/build.md`, default 4747).
 
 ## AI Integration
 
-sitemd includes an MCP server that works with Claude Code, Gemini CLI, and Codex CLI. The `.mcp.json` at the project root configures it automatically.
+sitemd ships a single skill for Claude Code and other AI coding agents. The `.claude/skills/sitemd/` and `.agents/skills/sitemd/` directories route agent intent to CLI commands.
 
-**Available MCP tools:** page management, content generation, site status, settings, deploy, clone, and more.
+All operations go through the `sitemd` CLI — run `sitemd help` for the full command list.
 
 ## Project Structure
 
 ```
 my-site/
-  sitemd/          ← Product directory
-    sitemd         ← Compiled binary
-    install        ← Bootstrap script (downloads binary)
-    pages/         ← Your markdown content
-    settings/      ← Site configuration (YAML frontmatter)
-    theme/         ← CSS and HTML templates
-    media/         ← Images and assets
-    site/          ← Built output (gitignored)
-  site.md          ← Setup instructions
+  sitemd/          <- Product directory
+    pages/         <- Your markdown content
+    settings/      <- Site configuration (YAML frontmatter)
+    theme/         <- CSS and HTML templates
+    media/         <- Images and assets
+    site/          <- Built output (gitignored)
+  site.md          <- Project context for AI agents
+  .claude/skills/sitemd/  <- Claude Code skill
+  .agents/skills/sitemd/  <- Generic agent skill
 ```
 
 ## Features
@@ -52,13 +53,16 @@ my-site/
 ## CLI Commands
 
 ```bash
-./sitemd/sitemd launch          # Start dev server
-./sitemd/sitemd deploy          # Build and deploy
-./sitemd/sitemd clone <url>     # Clone a website into this project
-./sitemd/sitemd auth login      # Log in to your account
-./sitemd/sitemd config setup    # Configure services
-./sitemd/sitemd scratch         # Reset to blank-slate
-./sitemd/sitemd update          # Update to latest version
+sitemd launch              # Start dev server
+sitemd deploy              # Build and deploy
+sitemd status              # Project overview
+sitemd pages               # List pages
+sitemd pages create <slug> # Create a page
+sitemd clone <url>         # Clone a website
+sitemd auth login          # Log in to your account
+sitemd secret set K=V      # Set a secret
+sitemd config setup        # Configure services
+sitemd update              # Update to latest version
 ```
 
 ## Documentation

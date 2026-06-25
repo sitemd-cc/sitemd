@@ -52,7 +52,7 @@ sitemd is a markdown site builder designed for people who use coding agents like
 
 **No code required.** Pages, settings, navigation, themes — everything is configured through markdown files with simple YAML frontmatter.
 
-**Built for AI workflows.** sitemd exposes MCP tools and agent skills that let coding agents create pages, update settings, and deploy your site. Just describe what you want in plain language.
+**Built for AI workflows.** sitemd ships agent skills that let coding agents create pages, update settings, and deploy your site. Just describe what you want in plain language.
 
 **Instant feedback.** The dev server rebuilds the moment you save a file. No build steps, no waiting, no configuration.
 

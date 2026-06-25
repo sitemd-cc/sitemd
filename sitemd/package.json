@@ -1,0 +1,18 @@
+{
+  "name": "@sitemd-cc/sitemd",
+  "version": "0.2.0",
+  "description": "Websites from Markdown",
+  "bin": {
+    "sitemd": "engine/cli/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "lucide-static": "^1.0.1",
+    "satori": "^0.26.0",
+    "sharp": "^0.34.5",
+    "simple-icons": "^16.13.0"
+  }
+}
