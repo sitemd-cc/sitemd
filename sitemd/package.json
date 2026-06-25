@@ -1,6 +1,6 @@
 {
   "name": "@sitemd-cc/sitemd",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Websites from Markdown",
   "bin": {
     "sitemd": "engine/cli/index.js"
