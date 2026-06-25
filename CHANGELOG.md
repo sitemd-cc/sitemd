@@ -4,6 +4,33 @@ A running log of everything shipped in sitemd.
 
 ---
 
+## v0.2.0 — June 25, 2026
+
+### Breaking Changes
+
+- sitemd is now a global npm package — install with `npm i -g @sitemd-cc/sitemd` instead of downloading a binary
+- MCP server removed — all operations now go through the `sitemd` CLI directly
+- Secrets moved from `.sitemd/config.json` to `.sitemd/secrets` flat file — manage with `sitemd secret set/list/remove`
+- Login now uses 6-digit email verification codes instead of browser-based magic links
+- Single consolidated skill replaces 23+ individual skills — only `.claude/skills/sitemd/` and `.agents/skills/sitemd/` are installed
+- `CLAUDE.md`, `AGENTS.md`, and `.mcp.json` no longer installed — `site.md` is the single project context file
+
+### New
+
+- Arrow-key interactive menu when running `sitemd` with no arguments
+- New CLI commands: `status`, `pages create/delete`, `groups add`, `secret set/list/remove`, `login`, `whoami`, `auth setup`
+- `sitemd update` detects and cleans up old install artifacts (MCP config, marker blocks, old skills, binaries)
+
+### Improved
+
+- Distribution simplified from 7 channels to 2 (npm + GitHub)
+
+### Migration
+
+Run `npm i -g @sitemd-cc/sitemd && sitemd update` in existing projects.
+
+---
+
 ## v0.1.3 — April 21, 2026
 
 ### Distribution
